@@ -3,10 +3,10 @@ import {
   SSMClient,
   Parameter,
 } from "@aws-sdk/client-ssm";
+import { ParameterResources } from "sst/node/config";
 import { buildSsmPath, createProxy, parseEnvironment, ssmNameToConstructId } from "./utlis";
 const ssm = new SSMClient({});
 
-export interface ParameterResources {}
 export type ParameterTypes = {
   [T in keyof ParameterResources]: string;
 };

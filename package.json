@@ -1,5 +1,5 @@
 {
-  "name": "my-sst-app",
+  "name": "sst2-stage-feature-flag-parameters",
   "version": "0.0.0",
   "private": true,
   "type": "module",
