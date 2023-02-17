@@ -1,3 +1,5 @@
+// copied from https://github.com/serverless-stack/sst
+
 export function createProxy<T extends object>(constructName: string) {
     return new Proxy<T>({} as any, {
       get(target, prop) {

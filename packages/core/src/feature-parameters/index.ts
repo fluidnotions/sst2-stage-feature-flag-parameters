@@ -1,3 +1,4 @@
+// adapted from https://github.com/serverless-stack/sst
 import {
   GetParametersCommand,
   SSMClient,
@@ -64,7 +65,6 @@ async function replaceFeatureParametersWithRealValues() {
     return;
   }
 
-  // Fetch all secrets
   const paths = names.map((name) => buildSsmPath("Parameter", name, "value"));
   const results = await loadFeatureFlags(paths);
   results.validParams.forEach((item) => {
@@ -81,7 +81,6 @@ async function loadFeatureFlags(paths: string[]) {
     chunks.push(paths.slice(i, i + 10));
   }
 
-  // Fetch secrets
   const validParams: Parameter[] = [];
   const invalidParams: string[] = [];
   await Promise.all(
